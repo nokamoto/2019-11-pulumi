@@ -12,7 +12,7 @@ jobs:
       - uses: docker://pulumi/actions:v1.5.2
         with:
           entrypoint: bash
-          args: -c "cd quickstart && pip install -r requirements.txt && pulumi preview --non-interactive"
+          args: -c "cd quickstart && pip install -r requirements.txt && pulumi preview --stack dev --non-interactive"
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
