@@ -11,7 +11,8 @@ jobs:
           fetch-depth: 1
       - uses: docker://pulumi/actions
         with:
-          args: preview
+          entrypoint: bash
+          args: pip install -r requirements.txt && pulumi preview --non-interactive
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
